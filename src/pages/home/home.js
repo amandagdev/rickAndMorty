@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Button} from 'react-native';
 import styles from './styles';
 import Character from '../../components/character/character';
+import api from '../../services/api';
 
-const Home = ({navigation}) => (
-  <View style={styles.container}>
-    <Text style={styles.title}>Home</Text>
-    <Character />
-  </View>
-);
-
-export default Home;
+export default function Home() {
+  return (
+    <View style={styles.container}>
+      <Character />
+    </View>
+  );
+}

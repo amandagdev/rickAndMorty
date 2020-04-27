@@ -5,7 +5,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flexWrap: 'wrap',
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#b5d5ea',
+    alignItems: 'center',
+    padding: 10,
   },
   title: {
     fontSize: 20,

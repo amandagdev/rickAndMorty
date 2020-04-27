@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, View, Text, Button} from 'react-native';
 import styles from './styles';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const Home = ({navigation}) => (
   <View style={styles.container}>
@@ -9,10 +10,11 @@ const Home = ({navigation}) => (
       <Text style={styles.title}>Nome Nome</Text>
     </View>
 
-    <Button
-      title="Go to Details"
-      onPress={() => navigation.navigate('Details')}
-    />
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => navigation.navigate('Details')}>
+      <Text style={styles.buttonText}>Detalhes</Text>
+    </TouchableOpacity>
   </View>
 );
 
