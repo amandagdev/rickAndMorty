@@ -1,13 +1,13 @@
 import React from 'react';
-import {Image, View, Text, Button} from 'react-native';
+import {Image, View, Text} from 'react-native';
 import styles from './styles';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const Home = ({navigation}) => (
+const Character = ({navigation, character}) => (
   <View style={styles.container}>
     <View style={styles.details}>
-      <Image style={styles.image} source={require('../../images/rick.jpg')} />
-      <Text style={styles.title}>Nome Nome</Text>
+      <Image style={styles.image} source={{uri: character.image}} />
+      <Text style={styles.title}>{character.name}</Text>
     </View>
 
     <TouchableOpacity
@@ -18,4 +18,4 @@ const Home = ({navigation}) => (
   </View>
 );
 
-export default Home;
+export default Character;

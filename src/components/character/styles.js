@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     height: 200,
     width: '100%',
     backgroundColor: '#fff',
-    marginTop:10
+    marginTop: 10,
   },
   details: {
     flex: 1,
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   button: {
     width: '100%',
