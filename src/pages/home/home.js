@@ -1,14 +1,17 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, FlatList, ActivityIndicator, Button} from 'react-native';
+import {View, FlatList, ActivityIndicator, Text} from 'react-native';
 import styles from './styles';
 import Character from '../../components/character/character';
 import api from '../../services/api';
+import Input from '../../components/input/input';
 
 export default function Home({navigation}) {
   const [characters, setCharacters] = useState([]);
   const [pages, setPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const totalPages = 25;
+  const [filterChar, onChangeText] = useState('');
+  const [character, setCharacter] = useState([]);
 
   async function loadPage(page = pages) {
     if (totalPages && page > totalPages) return;
@@ -24,6 +27,20 @@ export default function Home({navigation}) {
     }
   }
 
+  useEffect(() => {
+    async function filterCharacter() {
+      try {
+        const response = await api.get(`/character/?name=${filterChar}`);
+        const data = response.data.results;
+        setCharacter(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    filterCharacter();
+  }, [filterChar]);
+
   // const awaitCharacter = useCallback(() => {
 
   // }, []);
@@ -32,9 +49,21 @@ export default function Home({navigation}) {
     loadPage();
   }, []);
 
+  console.tron.log(loading);
+
   return (
     <View style={styles.container}>
-      {characters.length > 0 ? (
+      <Input
+        onChangeText={text => onChangeText(text)}
+        value={filterChar}
+        placeholder="Buscar"
+      />
+      {loading && (
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" color="#f9f07c" />
+        </View>
+      )}
+      {filterChar === '' ? (
         <FlatList
           style={{width: '100%'}}
           onEndReached={() => loadPage()}
@@ -49,9 +78,19 @@ export default function Home({navigation}) {
           )}
         />
       ) : (
-        <View style={styles.loading}>
-          <ActivityIndicator size="large" color="#f9f07c" />
-        </View>
+        <FlatList
+          style={{width: '100%'}}
+          onEndReached={() => loadPage()}
+          onEndReachedThreshold={0.1}
+          data={character}
+          ListFooterComponent={
+            loading && <ActivityIndicator size="large" color="#f9f07c" />
+          }
+          keyExtractor={item => String(item.id)}
+          renderItem={({item}) => (
+            <Character character={item} navigation={navigation} />
+          )}
+        />
       )}
     </View>
   );

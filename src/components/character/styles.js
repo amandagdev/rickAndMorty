@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#656565',
   },
   button: {
     width: '100%',

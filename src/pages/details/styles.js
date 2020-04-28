@@ -19,14 +19,17 @@ const styles = StyleSheet.create({
   textContainer: {
     padding: 10,
     flex: 1,
-    paddingTop: 30,
+    paddingTop: 10,
     backgroundColor: '#fff',
   },
   text: {
-    fontSize: 25,
+    fontSize: 23,
     fontWeight: 'bold',
     lineHeight: 45,
-    color: '#c3c3c3',
+    color: '#fff',
+    backgroundColor: '#b5d5ea',
+    padding: 3,
+    marginTop: 5,
   },
 });
 
