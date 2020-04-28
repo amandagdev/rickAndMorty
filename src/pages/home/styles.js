@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 20,
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    width: '100%',
+  },
 });
 
 export default styles;
