@@ -1,17 +1,16 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, FlatList, ActivityIndicator} from 'react-native';
+import {View, FlatList, ActivityIndicator, Button} from 'react-native';
 import styles from './styles';
 import Character from '../../components/character/character';
 import api from '../../services/api';
 
-export default function Home() {
+export default function Home({navigation}) {
   const [characters, setCharacters] = useState([]);
   const [pages, setPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const totalPages = 25;
 
   async function loadPage(page = pages) {
-    console.tron.log(pages, 'pages');
     if (totalPages && page > totalPages) return;
     setLoading(true);
     try {
@@ -45,7 +44,9 @@ export default function Home() {
             loading && <ActivityIndicator size="large" color="#f9f07c" />
           }
           keyExtractor={item => String(item.id)}
-          renderItem={({item}) => <Character character={item} />}
+          renderItem={({item}) => (
+            <Character character={item} navigation={navigation} />
+          )}
         />
       ) : (
         <View style={styles.loading}>
