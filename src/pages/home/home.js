@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, FlatList, ActivityIndicator, Text} from 'react-native';
+import {View, FlatList, ActivityIndicator} from 'react-native';
 import styles from './styles';
 import Character from '../../components/character/character';
 import api from '../../services/api';
@@ -23,7 +23,7 @@ export default function Home({navigation}) {
       setPages(page + 1);
       setLoading(false);
     } catch (error) {
-      console.tron.log(error);
+      console.log(error);
     }
   }
 
@@ -49,8 +49,6 @@ export default function Home({navigation}) {
     loadPage();
   }, []);
 
-  console.tron.log(loading);
-
   return (
     <View style={styles.container}>
       <Input
@@ -58,7 +56,7 @@ export default function Home({navigation}) {
         value={filterChar}
         placeholder="Buscar"
       />
-      {loading && (
+      {characters < 0 && (
         <View style={styles.loading}>
           <ActivityIndicator size="large" color="#f9f07c" />
         </View>
@@ -80,8 +78,6 @@ export default function Home({navigation}) {
       ) : (
         <FlatList
           style={{width: '100%'}}
-          onEndReached={() => loadPage()}
-          onEndReachedThreshold={0.1}
           data={character}
           ListFooterComponent={
             loading && <ActivityIndicator size="large" color="#f9f07c" />
