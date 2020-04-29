@@ -51,11 +51,13 @@ export default function Home({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Input
-        onChangeText={text => onChangeText(text)}
-        value={filterChar}
-        placeholder="Buscar"
-      />
+      <View style={styles.input}>
+        <Input
+          onChangeText={text => onChangeText(text)}
+          value={filterChar}
+          placeholder="Buscar"
+        />
+      </View>
       {characters < 0 && (
         <View style={styles.loading}>
           <ActivityIndicator size="large" color="#f9f07c" />

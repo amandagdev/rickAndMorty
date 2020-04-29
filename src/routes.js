@@ -12,8 +12,9 @@ export default function Routes() {
         name="Home"
         component={Home}
         options={{
+          headerTransparent: true,
           title: 'Rick and Morty',
-          headerTintColor: '#000',
+          headerTintColor: '#fff',
           headerTitleAlign: 'center',
         }}
       />

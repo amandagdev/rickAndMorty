@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, Image} from 'react-native';
 import styles from './styles.js';
 import * as Animatable from 'react-native-animatable';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Details({route}) {
   const {name, gender, species, status, image, origin} = route.params.character;
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    function changeTitle() {
+      navigation.setOptions({title: `${name}`});
+    }
+    changeTitle();
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>

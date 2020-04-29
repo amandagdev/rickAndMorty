@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     lineHeight: 45,
     color: '#fff',
     backgroundColor: '#b5d5ea',
-    padding: 3,
+    paddingLeft: 20,
+    borderRadius: 10,
     marginTop: 5,
   },
 });
