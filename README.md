@@ -29,6 +29,8 @@ Execute a aplicação:
 > npx react-native run-android ou yarn run react-native run-android
 
 
-Possíveis erros:
+### Possíveis erros:
 
-"Failed to install the app. Make sure you have the Android development environment set up" digite o seguinte comando na raiz do projeto: > chmod 755 android/gradlew, em caso de dúvidas https://github.com/facebook/react-native/issues/17197#issuecomment-398829408
+"Failed to install the app. Make sure you have the Android development environment set up" digite o seguinte comando na raiz do projeto:
+
+> chmod 755 android/gradlew, em caso de dúvidas https://github.com/facebook/react-native/issues/17197#issuecomment-398829408
