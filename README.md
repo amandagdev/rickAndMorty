@@ -15,7 +15,7 @@
 
 ## Como rodar a aplicação
 
-Tenha o ambiente do android studio configurado
+Tenha o ambiente do android studio configurado.
 
 No terminal clone o projeto:
 > git clone https://github.com/oblador/react-native-animatable.git
