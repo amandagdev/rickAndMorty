@@ -41,10 +41,6 @@ export default function Home({navigation}) {
     filterCharacter();
   }, [filterChar]);
 
-  // const awaitCharacter = useCallback(() => {
-
-  // }, []);
-
   useEffect(() => {
     loadPage();
   }, []);
