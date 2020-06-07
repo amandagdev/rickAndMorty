@@ -4,6 +4,14 @@
 
 <p align="justify">Simples aplicação em React Native onde consumo os dados da Api de Rick e Morty e mostro em tela os personagens e suas informações.</p>
 
+
+<p align="center">
+<img src="/src/images/rick-1.jpeg" height="550" width="300">
+
+<img src="/src/images/rick-2.jpeg" height="550" width="300">
+</p>
+
+
 ## Libs utilizadas 
 - [X] React Native
 - [X] React Navigation
